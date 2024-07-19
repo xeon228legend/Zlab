@@ -2,16 +2,29 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local Window = OrionLib:MakeWindow({Name = "Лабаратория зомби", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
+local Tab = Window:MakeTab({
+	Name = "Основная",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Удалить дверь только для людей",
+	Callback = function()
+      		game:GetService("Workspace").HumanOnlyDoor:Destroy()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Удалить безопасную зону",
+	Callback = function()
+      		game:GetService("Workspace").AntiWeaponZone:Destroy()
+  	end    
+})
+
 --[[
-Name = <string> - The name of the UI.
-HidePremium = <bool> - Whether or not the user details shows Premium status or not.
-SaveConfig = <bool> - Toggles the config saving in the UI.
-ConfigFolder = <string> - The name of the folder where the configs are saved.
-IntroEnabled = <bool> - Whether or not to show the intro animation.
-IntroText = <string> - Text to show in the intro animation.
-IntroIcon = <string> - URL to the image you want to use in the intro animation.
-Icon = <string> - URL to the image you want displayed on the window.
-CloseCallback = <function> - Function to execute when the window is closed.
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
 ]]
 
 local Tab = Window:MakeTab({
@@ -19,12 +32,6 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
 
 Tab:AddButton({
 	Name = "Получить шприц с вирусом",
@@ -33,11 +40,6 @@ Tab:AddButton({
   	end    
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
-
 Tab:AddButton({
 	Name = "Получить шприц с противоядием",
 	Callback = function()
@@ -45,22 +47,88 @@ Tab:AddButton({
   	end    
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
+local Tab = Window:MakeTab({
+	Name = "Телепорт",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Спавн людей",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(105.6434097290039, 3.000000476837158, 4.519054889678955)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Спавн зомби",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-73.3389892578125, 3.000000238418579, 89.27001190185547)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Шприцы с мутациями",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-59.987091064453125, -15.50000286102295, -35.89175033569336)
+
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Улица",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(103.02304077148438, 2.799999952316284, 145.57427978515625)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Склад",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8.287805557250977, 2.999999523162842, -82.51934814453125)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Комната на улице",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(171.1452178955078, 2.9999992847442627, -10.614144325256348)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Столовая",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(54.33319854736328, 2.999999523162842, -47.08584976196289)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Туалет",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120.17433166503906, 2.950718879699707, -36.16498947143555)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Подвал",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-17.134580612182617, -15.50000286102295, 33.02169418334961)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Лабаратория",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3.532392978668213, 3.000000476837158, 18.722265243530273)
+  	end    
+})
 
 local Tab = Window:MakeTab({
 	Name = "Другое",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
 
 Tab:AddButton({
 	Name = "Infinite Yield",
@@ -69,11 +137,6 @@ Tab:AddButton({
   	end    
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
-
 Tab:AddButton({
 	Name = "Хаб с эмоциями",
 	Callback = function()
@@ -81,22 +144,11 @@ Tab:AddButton({
   	end    
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
-
 local Tab = Window:MakeTab({
 	Name = "О разрабе",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
 
 Tab:AddButton({
 	Name = "Дс сервер(копируется в буфер)",
@@ -105,18 +157,9 @@ Tab:AddButton({
   	end    
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 Tab:AddButton({
 	Name = "ямяч",
 	Callback = function()
       		print("button pressed")
   	end    
 })
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
